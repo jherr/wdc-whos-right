@@ -2,7 +2,7 @@ import { os } from "@orpc/server";
 import * as z from "zod";
 import { v4 as uuidv4 } from "uuid";
 
-import { aiResponse, setupSession } from "@/engine";
+import { aiResponse, setupSession, getSessionParticipants } from "@/engine";
 
 export const setup = os.input(z.object({})).handler(() => {
   const id = uuidv4();
@@ -17,4 +17,10 @@ export const ask = os
     console.log("id", input.id);
     const response = aiResponse(input.prompt, input.id);
     return response;
+  });
+
+export const getParticipants = os
+  .input(z.object({ id: z.string() }))
+  .handler(({ input }) => {
+    return getSessionParticipants(input.id);
   });
