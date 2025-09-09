@@ -5,6 +5,7 @@ import OpenAI from "openai";
 import dotenv from "dotenv";
 dotenv.config();
 
+
 const PORT = process.env.PORT || 8080;
 const DOMAIN = process.env.NGROK_URL;
 const WS_URL = `wss://${DOMAIN}/ws`;
