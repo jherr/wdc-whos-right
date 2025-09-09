@@ -35,6 +35,7 @@ async function aiResponse(userInput, sessionId) {
   If the initial prompt contains the question as well as the answers, then the next conversation state should be "ready_for_judgment".
   Once you have all of the participants answers, then the next conversation state should be "ready_for_judgment".
   Do not ask for clarification, just collect the answers.
+  If there are 2 or more participants, then the conversation state should be "ready_for_judgment".
 
   If you are prompting for more answers, the tell the user to say "done" when they are finished.
   If the user says "done", then the next conversation state should be "ready_for_judgment".
